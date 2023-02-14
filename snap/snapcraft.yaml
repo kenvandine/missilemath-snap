@@ -1,0 +1,38 @@
+name: missilemath
+summary: A plane flying shooter game
+description: |
+  Test your aerial maneuvers to be the best pilot in the skies. Blast enemy airplanes and avoid rapid fire while flying. Play Math Mode to outwit your enemies using your quick number and computational skills.
+version: '1.0'
+base: core22
+architectures:
+- amd64
+confinement: strict
+grade: stable
+
+apps:
+  missilemath:
+    extensions: [gnome]
+    command: /MissileMath/MissileMath.x86_64
+    plugs:
+      - audio-playback
+      - desktop
+      - desktop-legacy
+      - joystick
+      - network
+      - opengl
+      - wayland
+      - x11
+
+parts:
+  missilemath:
+    source: https://github.com/endless-network/MissileMath_Binary/releases/download/v1.0/MissileMath.zip
+    plugin: dump
+    override-prime: |
+      craftctl default
+      chmod +x $CRAFT_PRIME/MissileMath/MissileMath.x86_64
+  desktop-files:
+    plugin: nil
+    source: desktop-file
+    override-build: |
+      mkdir -p $CRAFT_PART_INSTALL/meta/gui
+      cp * $CRAFT_PART_INSTALL/meta/gui
