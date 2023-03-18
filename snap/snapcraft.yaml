@@ -10,6 +10,7 @@ confinement: strict
 grade: stable
 issues: https://github.com/kenvandine/missilemath-snap/issues
 contact: https://endlessstudios.com/
+license: Proprietary
 
 apps:
   missilemath:
