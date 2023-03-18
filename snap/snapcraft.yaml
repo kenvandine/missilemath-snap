@@ -15,7 +15,7 @@ license: Proprietary
 apps:
   missilemath:
     extensions: [gnome]
-    command: /MissileMath/MissileMath.x86_64
+    command: MissileMath/MissileMath.x86_64
     plugs:
       - audio-playback
       - desktop
